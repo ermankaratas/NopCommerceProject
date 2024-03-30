@@ -40,6 +40,8 @@ public class Elements {
     public WebElement registerNotConfirmText;
     @FindBy(xpath = "//button[@class='button-1 login-button']")
     public WebElement loginSubmitButton;
+    @FindBy(xpath = "//div[@class='message-error validation-summary-errors']")
+    public WebElement loginNotConfirmText;
 }
 
 

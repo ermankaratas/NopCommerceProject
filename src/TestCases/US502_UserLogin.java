@@ -16,7 +16,7 @@ import static Utility.BaseDriver.wait;
 
 public class US502_UserLogin {
     @Test
-    public void TC501_Pozitive(){
+    public void TC502_Pozitive(){
         startDriver();
 
         Elements elements = new Elements();
