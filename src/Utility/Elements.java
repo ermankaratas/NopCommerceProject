@@ -10,6 +10,10 @@ public class Elements {
     }
     @FindBy(linkText = "Register")
     public WebElement registerButton;
+    @FindBy(linkText = "Log in")
+    public WebElement loginButton;
+    @FindBy(linkText = "My account")
+    public WebElement myAccount;
     @FindBy(id = "gender-male")
     public WebElement genderMale;
     @FindBy(id = "FirstName")
@@ -34,6 +38,8 @@ public class Elements {
     public WebElement registerConfirmText;
     @FindBy(xpath = "//div[@class='message-error validation-summary-errors']/ul/li")
     public WebElement registerNotConfirmText;
+    @FindBy(xpath = "//button[@class='button-1 login-button']")
+    public WebElement loginSubmitButton;
 }
 
 
