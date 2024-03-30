@@ -1,9 +1,10 @@
 package Utility;
 
-import TestCases.US501_UserRegistration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -32,7 +33,17 @@ public class BaseDriver {
         driver.quit();
     }
     public void loginWebsite(){
-        System.out.println("login çalıştı");
+
+        Elements elements = new Elements();
+
+        elements.loginButton.click();
+        wait.until(ExpectedConditions.urlContains("login"));
+        elements.email.sendKeys("xq1@gmail.com");
+        elements.password.sendKeys("1234Abcd");
+        elements.loginSubmitButton.click();
+
+        wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/"));
+        Assert.assertTrue(elements.myAccount.isDisplayed());
     }
 
 }
