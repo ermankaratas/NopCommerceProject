@@ -78,10 +78,19 @@ public class US505_TabMenuRandom extends BaseDriver {
             softwareItems.add(element.getText());
         items.add(softwareItems);
 
-        int randomSelect = Tools.randomGenerator(items.get(1).size());   // selected from Computers
+        // Product is selected from Notebooks-Menu
+        int randomSelect = Tools.randomGenerator(items.get(1).size());
         String product = items.get(1).get(randomSelect);
 
         elements.searchBox.sendKeys(product);
         elements.searchButton.click();
+
+        wait.until(ExpectedConditions.visibilityOf(elements.items.get(0)));
+        String foundProduct = elements.items.get(0).getText();
+        boolean isFoundProductInList = false;
+        for (int i = 0; i < items.get(1).size(); i++)
+            if (foundProduct.equals(items.get(1).get(i)))
+                isFoundProductInList = true;
+        Assert.assertTrue(isFoundProductInList,"The product is not in the list");
     }
 }
