@@ -88,6 +88,10 @@ public class Elements {
     public WebElement title;
     @FindBy(xpath = "//h2[@class='product-title']/a")
     public List<WebElement> items;
+    @FindBy(id="small-searchterms")
+    public WebElement searchBox;
+    @FindBy(xpath = "//button[text()='Search']")
+    public WebElement searchButton;
 }
 
 

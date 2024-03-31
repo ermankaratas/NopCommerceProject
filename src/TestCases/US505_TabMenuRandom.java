@@ -78,6 +78,10 @@ public class US505_TabMenuRandom extends BaseDriver {
             softwareItems.add(element.getText());
         items.add(softwareItems);
 
+        int randomSelect = Tools.randomGenerator(items.get(1).size());   // selected from Computers
+        String product = items.get(1).get(randomSelect);
 
+        elements.searchBox.sendKeys(product);
+        elements.searchButton.click();
     }
 }
