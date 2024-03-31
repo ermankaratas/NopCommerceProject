@@ -46,6 +46,12 @@ public class Elements {
     public WebElement loginNotConfirmText;
     @FindBy(xpath = "//ul[@class='top-menu notmobile']/li")
     public List<WebElement> tabMenus;
+    @FindBy(xpath = "(//ul[@class='sublist first-level']/li)[position()<=3]/a")
+    public List<WebElement> subTabMenusComputers;
+    @FindBy(xpath = "(//ul[@class='sublist first-level']/li)[position()>3 and position()<=6]/a")
+    public List<WebElement> subTabMenusElectronics;
+    @FindBy(xpath = "(//ul[@class='sublist first-level']/li)[position()>6 and position()<=9]/a")
+    public List<WebElement> subTabMenusApparel;
     @FindBy(linkText = "Computers")
     public WebElement computers;
     @FindBy(xpath = "//ul[@class='top-menu notmobile']/li/ul/li/a")
@@ -80,6 +86,8 @@ public class Elements {
     public WebElement giftCards;
     @FindBy(xpath = "//div[@class='page-title']")
     public WebElement title;
+    @FindBy(xpath = "//h2[@class='product-title']/a")
+    public List<WebElement> items;
 }
 
 
