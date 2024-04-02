@@ -41,6 +41,8 @@ public class NopCommerce extends BaseDriver {
     @Test(priority = 10, groups = {"NegativeRegistration"})
     public void TC501N(){  // Negative Register
         Elements elements = new Elements();
+        if(elements.logout.isDisplayed())
+            elements.logout.click();
         elements.registerButton.click();
         wait.until(ExpectedConditions.urlContains("register"));
         elements.genderMale.click();
