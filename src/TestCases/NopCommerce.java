@@ -62,7 +62,7 @@ public class NopCommerce extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(elements.registerSubmitButton));
         Assert.assertTrue(elements.registerNotConfirmText.getText().equals("The specified email already exists"));
     }
-    @Test(priority = 2, groups = {"Smoke", "Login"})
+    @Test(priority = 2, groups = {"Smoke", "Login"}, dependsOnMethods = {"TC501"})
     public void TC502(){ // User Login
         Elements elements = new Elements();
         elements.loginButton.click();
