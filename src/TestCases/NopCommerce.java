@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NopCommerce extends BaseDriver {
-    @Test
+    @Test(priority = 1, groups = {"Smoke", "Registration"})
     public void TC501(){ // User Register
         Elements elements = new Elements();
         elements.registerButton.click();
@@ -38,7 +38,7 @@ public class NopCommerce extends BaseDriver {
         wait.until(ExpectedConditions.urlContains("registerresult"));
         Assert.assertTrue(elements.registerConfirmText.getText().equals("Your registration completed"));
     }
-    @Test
+    @Test(priority = 10, groups = {"NegativeRegistration"})
     public void TC501N(){  // Negative Register
         Elements elements = new Elements();
         elements.registerButton.click();
@@ -60,7 +60,7 @@ public class NopCommerce extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(elements.registerSubmitButton));
         Assert.assertTrue(elements.registerNotConfirmText.getText().equals("The specified email already exists"));
     }
-    @Test
+    @Test(priority = 2, groups = {"Smoke", "Login"})
     public void TC502(){ // User Login
         Elements elements = new Elements();
         elements.loginButton.click();
@@ -74,8 +74,8 @@ public class NopCommerce extends BaseDriver {
 
         elements.logout.click();
     }
-    @Test(dataProvider = "usersData")
-    public void TC503(String username, String password, int userTries){ // User Login Tries
+    @Test(priority = 3, groups = {"Smoke", "Login"}, dataProviderClass = NopCommerce.class, dataProvider = "usersData")
+    public void TC503(String username, String password){ // User Login Tries
         Elements elements = new Elements();
 
         elements.loginButton.click();
@@ -84,7 +84,7 @@ public class NopCommerce extends BaseDriver {
         elements.password.sendKeys(password);
         elements.loginSubmitButton.click();
 
-        if(userTries == 7){
+        if(username.equals("xq1@gmail.com") & password.equals("1234Abcd")){
             wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/"));
             Assert.assertTrue(elements.myAccount.isDisplayed());
         } else {
@@ -96,17 +96,17 @@ public class NopCommerce extends BaseDriver {
     Object[][] usersData(){
         Object[][] emailPassword =
                 {
-                        {"test1@test.com","1234",1},
-                        {"test2@test.com","1234",2},
-                        {"test3@gmail.com","1234",3},
-                        {"test4@test.com","1234",4},
-                        {"test5@test.com","1234",5},
-                        {"test6@test.com","1234",6},
-                        {"xq1@gmail.com","1234Abcd",7},
+                        {"test1@test.com","1234"},
+                        {"test2@test.com","1234"},
+                        {"test3@gmail.com","1234"},
+                        {"test4@test.com","1234"},
+                        {"test5@test.com","1234"},
+                        {"test6@test.com","1234"},
+                        {"xq1@gmail.com","1234Abcd"},
                 };
         return emailPassword;
     }
-    @Test
+    @Test(priority = 4, groups = {"UITesting", "TabMenu"})
     public void TC504(){  // TabMenu
         Elements elements = new Elements();
 
@@ -163,7 +163,7 @@ public class NopCommerce extends BaseDriver {
         actions.moveToElement(elements.giftCards).click().build().perform();
         Assert.assertTrue(elements.title.getText().equals("Gift Cards"));
     }
-    @Test
+    @Test(priority = 5, groups = {"UITesting", "Search", "TabMenu","Regression"})
     public void TC505(){  // TabMenu Products Control
         Elements elements = new Elements();
 
