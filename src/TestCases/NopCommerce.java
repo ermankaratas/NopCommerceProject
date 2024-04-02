@@ -71,10 +71,13 @@ public class NopCommerce extends BaseDriver {
 
         wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/"));
         Assert.assertTrue(elements.myAccount.isDisplayed());
+
+        elements.logout.click();
     }
     @Test(dataProvider = "usersData")
     public void TC503(String username, String password, int userTries){ // User Login Tries
         Elements elements = new Elements();
+
         elements.loginButton.click();
         wait.until(ExpectedConditions.urlContains("login"));
         elements.email.sendKeys(username);

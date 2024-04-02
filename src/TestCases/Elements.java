@@ -41,6 +41,8 @@ public class Elements {
     public WebElement registerConfirmText;
     @FindBy(xpath = "//div[@class='message-error validation-summary-errors']/ul/li")
     public WebElement registerNotConfirmText;
+    @FindBy(linkText = "Log out")
+    public WebElement logout;
     @FindBy(xpath = "//button[@class='button-1 login-button']")
     public WebElement loginSubmitButton;
     @FindBy(xpath = "//div[@class='message-error validation-summary-errors']")
