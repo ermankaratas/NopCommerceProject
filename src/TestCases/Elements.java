@@ -1,5 +1,6 @@
-package Utility;
+package TestCases;
 
+import Utility.BaseDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
