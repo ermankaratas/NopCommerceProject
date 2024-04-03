@@ -15,7 +15,7 @@ public class BaseDriver {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    @BeforeClass
+    @BeforeClass(groups = {"Smoke Test","Registration Test", "Login Test","TabMenu","Search"})
     public void startDriver(){
         driver = new ChromeDriver();
 
@@ -28,7 +28,7 @@ public class BaseDriver {
 
         //loginWebsite();
     }
-    @AfterClass
+    @AfterClass(groups = {"Smoke Test","Registration Test", "Login Test","TabMenu","Search"})
     public void closeDriver(){
         Tools.wait(2);
         driver.quit();
